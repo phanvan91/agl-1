@@ -1,0 +1,12 @@
+<form [formGroup]="formSignUp" (ngSubmit)="OnSubmit();">
+  <input type="text" placeholder="Enter your email" formControlName="email">
+  <br><br>
+  <input type="password" placeholder="Enter your password" formControlName="password">
+  <br><br>
+  <ng-container formGroupName="subject">
+    <label for="angular"> <input id="angular" type="checkbox" formControlName="angular" > angular </label><br>
+    <label for="nodejs"> <input id="nodejs" type="checkbox" formControlName="nodejs"> nodejs </label><br>
+    <label for="php"> <input id="php" type="checkbox" formControlName="php"> php </label><br>
+  </ng-container>
+  <button [disabled]="formSignUp.invalid" name="button">submit</button>
+</form>

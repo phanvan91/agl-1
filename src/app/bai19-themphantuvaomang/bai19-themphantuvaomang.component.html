@@ -1,0 +1,21 @@
+<div [hidden]="anhien">
+  <input type="text" placeholder="English" [(ngModel)]="newEn"> <br>
+  <input type="text" placeholder="Vietnamese" [(ngModel)]="newVn"><br><br>
+  <button type="button" (click)="themtumoi()"  name="button">Thêm từ mới</button><br><br>
+</div>
+<button type="button" (click)="anhien = !anhien" [hidden]="!anhien" name="button">Thêm từ mới</button>
+<br><br>
+<select [(ngModel)]="filterstatus">
+  <option value="Xem_Tat_Ca">Xem tất cả</option>
+  <option value="Xem_Da_Nho">Xem đã nhớ</option>
+  <option value="Xem_Chua_Nho">Xem chưa nhớ</option>
+</select>
+<br><br>
+<ul *ngFor="let sub of arrWords">
+  <div *ngIf="xemtu(sub.memorized)">
+    <li [ngStyle]="sub.memorized ? nho : khongnho">{{ sub.en }}</li>
+    <li>{{ sub.vn }}</li>
+    <li> <button type="button" (click)="xoa(sub.id)" name="button">Xoá</button> </li>
+    <li> <button type="button" (click)="sub.memorized = !sub.memorized " name="button">{{sub.memorized ?'Chưa Thuộc' :'Đã Thuộc'}}</button> </li>
+  </div>
+</ul>

@@ -1,0 +1,17 @@
+<form (ngSubmit)="onSubmit(formsign)" #formsign="ngForm">
+  <input type="text" placeholder="Enter your email" ngModel #txtemail="ngModel"  name="email" required email>
+  <span *ngIf="txtemail.errors?.required && txtemail.touched">email is required</span>
+  <span *ngIf="txtemail.errors?.email && txtemail.touched">email is email</span>
+  <br><br>
+
+  <input type="password" placeholder="Enter your password" #txtpass="ngModel" ngModel name="password" minlength="6"><br><br>
+  <div ngModelGroup="subject">
+    <label for="angular"> <input id="angular" type="checkbox" [ngModel]="false" name="angular" value=""> Football </label><br>
+    <label for="nodejs"> <input id="nodejs" type="checkbox" [ngModel]="false" name="nodejs" value=""> Football </label><br>
+    <label for="php"> <input id="php" type="checkbox" [ngModel]="false" name="php" value=""> Football </label><br>
+  </div>
+  <button name="button" [disabled]="formsign.invalid">Submit</button>
+
+</form>
+<!-- {{ formsign.value | json }}<br>
+{{ txtpass.errors | json }} -->

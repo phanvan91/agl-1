@@ -1,0 +1,4 @@
+<ul *ngFor="let sub of arrWords">
+  <li [ngStyle]="sub.memorized ? nho : khongnho">{{ sub.en }}</li>
+  <li>{{ sub.vn }}</li>
+</ul>

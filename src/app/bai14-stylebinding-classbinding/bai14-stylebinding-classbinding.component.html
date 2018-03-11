@@ -1,0 +1,8 @@
+<input type="text" [(ngModel)]="name" value="">
+<h3 [style.color]="isHeight  ? 'red' : 'blue' "> Myname : {{name}}</h3>
+<div [class]="isHeight?'circle' : 'square'">
+
+</div>
+<div [class.circle]="!isHeight" [class.square]="isHeight">
+
+</div>
